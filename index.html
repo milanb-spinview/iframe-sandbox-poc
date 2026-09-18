@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>iframe sandbox demo</title>
+		<link rel="stylesheet" href="_style.css" />
+	</head>
+	<body>
+		<h1>iframe sandbox demo</h1>
+		<p class="sub">
+			Each page below is served over https and meant to be embedded as another site's
+			<code>&lt;iframe src&gt;</code>. They show what an embedded page can still do when the host
+			<code>&lt;iframe&gt;</code> has no <code>sandbox</code> attribute.
+		</p>
+		<ul>
+			<li><a href="top-nav.html">top-nav.html</a> — navigate the whole host page away</li>
+			<li><a href="auto-top-nav.html">auto-top-nav.html</a> — same, attempted on load (no click)</li>
+			<li><a href="popup.html">popup.html</a> — <code>window.open()</code> a new tab</li>
+			<li><a href="download.html">download.html</a> — force a file into Downloads</li>
+			<li><a href="form-post.html">form-post.html</a> — POST to an external origin</li>
+			<li><a href="spoof.html">spoof.html</a> — render a fake login inside the host chrome</li>
+		</ul>
+		<p class="sub">
+			With <code>sandbox</code> on the host iframe (granting only what a real embed needs), each of
+			these is blocked.
+		</p>
+	</body>
+</html>

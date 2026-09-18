@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>forced download</title>
+		<link rel="stylesheet" href="_style.css" />
+	</head>
+	<body>
+		<h1>3 — Forced download</h1>
+		<p class="sub">
+			The embedded page drops a file into the user's Downloads folder. In a real attack the payload
+			would be a malicious document rather than a text file. Blocked by a <code>sandbox</code>
+			without <code>allow-downloads</code>.
+		</p>
+		<button onclick="dl()">Download poc.txt</button>
+		<div class="log" id="log">ready</div>
+		<p class="nav"><a href="index.html">&larr; all demos</a></p>
+		<script>
+			function dl() {
+				const a = document.createElement('a');
+				a.href = 'data:text/plain,you-were-served';
+				a.download = 'poc.txt';
+				document.body.appendChild(a);
+				a.click();
+				a.remove();
+				document.getElementById('log').textContent = 'download triggered (if not blocked)';
+			}
+		</script>
+	</body>
+</html>

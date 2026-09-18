@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>popup</title>
+		<link rel="stylesheet" href="_style.css" />
+	</head>
+	<body>
+		<h1>2 — Popup (window.open)</h1>
+		<p class="sub">
+			The embedded page opens a new tab/window to an external site. Useful for driving the user to
+			an attacker page or a consent-screen lookalike. Blocked by a <code>sandbox</code> without
+			<code>allow-popups</code>.
+		</p>
+		<button onclick="pop()">Open example.com in a new tab</button>
+		<div class="log" id="log">ready</div>
+		<p class="nav"><a href="index.html">&larr; all demos</a></p>
+		<script>
+			function pop() {
+				const w = window.open('https://example.com/?popup', '_blank');
+				document.getElementById('log').textContent = w
+					? 'popup opened'
+					: 'popup blocked (no allow-popups, or browser popup blocker)';
+			}
+		</script>
+	</body>
+</html>

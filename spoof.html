@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>content spoof</title>
+		<link rel="stylesheet" href="_style.css" />
+		<style>
+			.card {
+				max-width: 340px;
+				margin: 30px 0;
+				padding: 24px;
+				border: 1px solid #ddd;
+				border-radius: 12px;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+			}
+			.card h2 {
+				font-size: 17px;
+				margin: 0 0 4px;
+			}
+			.card p {
+				margin: 0 0 18px;
+				color: #666;
+				font-size: 13px;
+			}
+			.card label {
+				display: block;
+				font-size: 12px;
+				color: #444;
+				margin: 12px 0 4px;
+			}
+			.card input {
+				width: 100%;
+				box-sizing: border-box;
+				padding: 9px 10px;
+				border: 1px solid #ccc;
+				border-radius: 7px;
+				font: inherit;
+			}
+			.card .go {
+				margin-top: 18px;
+				width: 100%;
+				text-align: center;
+				background: #1256d6;
+				color: #fff;
+				border: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>5 — Content spoof (phishing)</h1>
+		<p class="sub">
+			No script needed. Because this renders inside the host's own chrome, a user reasonably
+			believes the prompt below belongs to the host application. The embedded page just draws a
+			convincing form and collects whatever is typed.
+		</p>
+		<div class="card">
+			<h2>Session expired</h2>
+			<p>Please re-enter your credentials to continue.</p>
+			<label>Email</label>
+			<input type="email" autocomplete="username" />
+			<label>Password</label>
+			<input type="password" autocomplete="current-password" />
+			<button class="go" onclick="grab()">Sign in</button>
+		</div>
+		<div class="log" id="log">nothing captured yet</div>
+		<p class="nav"><a href="index.html">&larr; all demos</a></p>
+		<script>
+			function grab() {
+				const inputs = document.querySelectorAll('.card input');
+				document.getElementById('log').textContent =
+					'the embedded page just read: ' + inputs[0].value + ' / ' + inputs[1].value;
+			}
+		</script>
+	</body>
+</html>

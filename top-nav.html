@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>top-level navigation</title>
+		<link rel="stylesheet" href="_style.css" />
+	</head>
+	<body>
+		<h1>1 — Frame-bust (top-level navigation)</h1>
+		<p class="sub">
+			Click the button. The <em>entire host page</em> navigates to another site — the address bar
+			showed the host's origin a second ago, now it shows this one. This is the phishing pivot:
+			land the user on a lookalike page on a URL they just trusted.
+		</p>
+		<button onclick="bust()">Navigate the top window to example.com</button>
+		<div class="log" id="log">
+			ready — needs a click (Chrome blocks auto top-nav from a cross-origin frame)
+		</div>
+		<p class="nav"><a href="index.html">&larr; all demos</a></p>
+		<script>
+			function bust() {
+				document.getElementById('log').textContent = 'navigating top window...';
+				top.location = 'https://example.com/?frame-bust';
+			}
+		</script>
+	</body>
+</html>
